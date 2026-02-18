@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
-import { AppContextprovider } from "./context/AppContext.jsx";
+import { AppContextProvider } from "./context/AppContext.jsx";
 import { ClerkProvider } from "@clerk/clerk-react";
 
 // Import your Publishable Key
@@ -13,12 +13,12 @@ if (!PUBLISHABLE_KEY) {
   throw new Error("Missing Publishable Key");
 }
 
-createRoot(document.getElementById("root")).render(
+ createRoot(document.getElementById("root")).render(
   <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl="/">
     <BrowserRouter>
-      <AppContextprovider>
+      <AppContextProvider>
         <App />
-      </AppContextprovider>
+      </AppContextProvider>
     </BrowserRouter>
   </ClerkProvider>
 );

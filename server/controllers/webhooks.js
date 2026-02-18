@@ -3,7 +3,6 @@ import User from '../models/User.js';
 
 
 // API Controller Function to Manage Clerk User with database
-
 export const clerkWebhooks = async (req,res) => {
    try {
     
@@ -46,6 +45,7 @@ export const clerkWebhooks = async (req,res) => {
         res.json({})
         break;
     }
+
     case 'user.deleted':{
         await User.findByIdAndDelete(data.id)
         res.json({})
@@ -59,4 +59,5 @@ export const clerkWebhooks = async (req,res) => {
     console.log(error.message)
     res.json({success:false, message:'Webhooks Error'})
    }
+   
 } 
